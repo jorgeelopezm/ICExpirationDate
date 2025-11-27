@@ -86,20 +86,20 @@
 
   <div id="emoji">🗓️🔚😓</div>
 
-<h1>Countdown until Expiration Date of March 31st 2026</h1>
+<h1>Countdown until March 31st 2026</h1>
 
 
   <div id="countdown">Countdown...</div>
 
   <script>
     function updateCountdown() {
-      const targetDate = new Date("March 31, 2026 00:00:00").getTime();
+      const targetDate = new Date("March 31, 2025 00:00:00").getTime();
       const now = new Date().getTime();
       const difference = targetDate - now;
 
       if (difference <= 0) {
         document.getElementById("countdown").innerHTML =
-          "Mensaje Genérico";
+          "The employment term for this amazing team has unfortunately concluded.";
         return;
       }
 
