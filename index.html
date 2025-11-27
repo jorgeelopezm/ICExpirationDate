@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UY Integration Consultants - Expiration Date</title>
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #6be1d3;   
+      --text-light: #ffffff;
+      --text-dark: #000000;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+
+      /* Clean red background */
+      background: var(--primary);
+      color: var(--text-light);
+      padding: 20px;
+    }
+
+    #emoji {
+      font-size: 5rem;
+      margin-bottom: 15px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      margin: 0 0 20px 0;
+      font-weight: 700;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      padding: 0 10px;
+    }
+
+    #countdown {
+      font-size: 1.6rem;
+      font-weight: 500;
+
+      background: rgba(255, 255, 255, 0.15);
+      padding: 18px 25px;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      max-width: 90%;
+    }
+
+    /* Improved layout for very small phones */
+    @media (max-width: 480px) {
+      #emoji {
+        font-size: 4.2rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      #countdown {
+        font-size: 1.3rem;
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="emoji">🌽🐷🌽</div>
+
+<h1>Cuenta regresiva para el concierto</h1>
+
+
+  <div id="countdown">Countdown...</div>
+
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date("March 31, 2026 00:00:00").getTime();
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        document.getElementById("countdown").innerHTML =
+          "Mensaje Genérico";
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${days} days • ${hours} hours • ${minutes} minutes • ${seconds} seconds`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
